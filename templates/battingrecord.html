@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL |Batting Record</title>
+</head>
+<body>
+    <h1>Batsman Record</h1>
+    <form action="/batsmanRecord" method="get">
+        <label>Select Batsman</label>
+        <select name="batsman">
+          {% for batsman in batters%}
+          <option>{{batsman}}</option>
+          {% endfor %}
+        </select><br><br>
+
+        <input type=submit value="Find Batsman Record">
+    </form>
+{%if result%}
+    {%for i in result%}
+        <p>{{i}} : {{result[i]}}</p>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

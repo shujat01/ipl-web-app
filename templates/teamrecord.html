@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL | Team Record</title>
+</head>
+<body>
+    <h1>Team Record</h1>
+    <form action="/teamRecord" method ="get">
+    <label>Select Team</label>
+    <select name="team">
+            {% for team in teams%}
+                <option>{{team}}</option>
+            {% endfor %}
+    </select><br><br>
+    <input type=submit value="Find Team Record">
+    </form>
+    {%if result%}
+    {%for i in result%}
+       <p>{{i}} : {{result[i]}}</p>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
